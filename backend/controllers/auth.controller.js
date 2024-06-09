@@ -55,9 +55,35 @@ export const signup = async (req, res) => {
     }
 };
 
-export const login = (req, res) => {
-    res.send("Login Route");
-    console.log("loginUser");
+export const login = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await User.findOne({username});
+        const isPasswordCorrect = await bcrypt.compare(password, user?.password || ""); // we did "" because if user doesn't exists then bcrypt compares with empty string "" else it will give error
+
+        if (!user) {
+            return res.status(400).json({error: "User doesn't exists!"});
+        }
+        if(!isPasswordCorrect) {
+            return res.status(400).json({error: "Password incorrect!"});
+        }
+
+        generateTokenAndSetCookie(user._id, res);
+
+        res.status(200).json({
+            _id: user._id,
+            fullName: user.fullName,
+            username: user.username,
+            profilePic: user.profilePic,
+        });
+
+    } catch (error) {
+        console.log("Error in login controller", error.message)
+        res.status(500).json({error:"Internal Server Error"})
+    }
+
+    // res.send("Login Route");
+    // console.log("loginUser");
 };
 
 export const logout = (req, res) => {
