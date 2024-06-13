@@ -1,5 +1,5 @@
 // import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import useLogin from "../../hooks/useLogin";
 
 // const Login = () => {
@@ -92,9 +92,9 @@ const Login = () => {
 							className='w-full input input-bordered h-10' style={{ backgroundColor: 'white', color: 'black' }}
 						/>
 					</div>
-					<a href='#' className='text-sm  hover:underline hover:text-blue-600 mt-2 inline-block text-gray-300'>
+					<Link to='/signup' className='text-sm  hover:underline hover:text-blue-600 mt-2 inline-block text-gray-300'>
 						{"Don't"} have an account?
-					</a>
+					</Link>
 
 					<div>
 						<button className='btn btn-block btn-sm mt-2 border border-slate-700 bg-blue-500 text-white'>Login</button>
