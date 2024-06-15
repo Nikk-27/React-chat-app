@@ -1,9 +1,11 @@
+import '../../App.css'; // Ensure this file contains your CSS
+
 const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
 	return (
 		<div className='flex'>
 			<div className='form-control'>
 				<label className={`label gap-2 cursor-pointer ${selectedGender === "male" ? "selected" : ""} `}>
-					<span className='label-text'>Male</span>
+					<span style={{ color: 'black' }}>Male</span>
 					<input
 						type='checkbox'
 						className='checkbox border-slate-900'
@@ -12,9 +14,9 @@ const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
 					/>
 				</label>
 			</div>
-			<div className='form-control'>
+			<div className='form-control checkbox-container'>
 				<label className={`label gap-2 cursor-pointer  ${selectedGender === "female" ? "selected" : ""}`}>
-					<span className='label-text'>Female</span>
+					<span style={{ color: 'black' }}>Female</span>
 					<input
 						type='checkbox'
 						className='checkbox border-slate-900'

@@ -1,3 +1,35 @@
 .mx-auto {
     margin-right: auto;
 }
+
+
+.checkbox {
+    margin-left: 10px;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #ccc; /* grey border */
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    background-color: #ccc; /* white background */
+}
+
+.checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+/* Ensure proper spacing between the checkboxes */
+.checkbox-container {
+    margin-left: 20px;
+}
+
+.border {
+    border: 1px solid #ccc; /* Sets a 1px solid border with grey color */
+}
