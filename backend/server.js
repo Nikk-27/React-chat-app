@@ -11,8 +11,9 @@ import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
+import { app, server } from "./socket/socket.js";
 
-const app = express();
+// const app = express();
 const PORT = process.env.PORT || 5000;
 
 dotenv.config();
@@ -37,9 +38,14 @@ app.use("/api/users", userRoutes);
 
 // app.listen(PORT,() => console.log(`Server Running on port ${PORT}`)); earlier it was like this
 
-app.listen(PORT,() => {
-    connectToMongoDB()
-    console.log(`Server Running on port ${PORT}`)
+server.listen(PORT, () => {
+    connectToMongoDB();
+    console.log(`Server Running on port ${PORT}`);
 });
+
+// app.listen(PORT, () => {
+//     connectToMongoDB();
+//     console.log(`Server Running on port ${PORT}`);
+// });
 
 // npm install nodemon --save-dev we do this so that our server auto reloads and reflects if we make any change in the code and we don't need to terminate/restart the server again
