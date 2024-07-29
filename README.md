@@ -26,9 +26,9 @@ Technologies Used
 Installation
 1. Clone the repository:
 
-git clone https://github.com/Nikk-27/React-chat-app.git
+- git clone https://github.com/Nikk-27/React-chat-app.git
 
-cd React-chat-app
+- cd React-chat-app
 
 2. Install dependencies:
 
